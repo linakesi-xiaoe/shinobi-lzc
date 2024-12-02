@@ -1,7 +1,7 @@
 lzc-sdk-version: "0.1"
 name: shinobi
 package: iamxiaoe.lzcapp.shinobi
-version: 0.0.2
+version: 0.0.3
 description: "The Next Generation in Open-Source Video Management Software with support for over 6000 IP and USB Cameras"
 homepage: "https://github.com/ShinobiCCTV/Shinobi"
 author: "shinobi"
@@ -39,7 +39,7 @@ services:
     entrypoint: sh /home/Shinobi/Docker/init.sh
     binds:
       # - /lzcapp/run/mnt/home/shinobi:/
-      - /lzcapp/run/mnt/home/shinobi/customAutoLoad:/customAutoLoad
-      - /lzcapp/run/mnt/home/shinobi/home/Shinobi/plugins:/home/Shinobi/plugins
-      - /lzcapp/run/mnt/home/shinobi/home/Shinobi/videos:/home/Shinobi/videos
-      - /lzcapp/run/mnt/home/shinobi/var/lib/mysql:/var/lib/mysql
+      - /lzcapp/var/shinobi/customAutoLoad:/customAutoLoad
+      - /lzcapp/var/shinobi/home/Shinobi/plugins:/home/Shinobi/plugins
+      - /lzcapp/var/shinobi/home/Shinobi/videos:/home/Shinobi/videos
+      - /lzcapp/var/shinobi/var/lib/mysql:/var/lib/mysql

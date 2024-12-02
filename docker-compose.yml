@@ -1,0 +1,67 @@
+services:
+  shinobi:
+
+    command:
+      - "pm2-docker"
+      - "pm2.yml"
+
+    container_name: "shinobi"
+
+    devices:
+      - "/dev/fuse:/dev/fuse"
+
+    entrypoint:
+      - "sh"
+      - "/home/Shinobi/Docker/init.sh"
+
+    environment:
+      - "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+      - "NODE_VERSION=12.21.0"
+      - "YARN_VERSION=1.22.5"
+      - "DB_USER=majesticflame"
+      - "DB_PASSWORD="
+      - "DB_HOST=localhost"
+      - "DB_DATABASE=ccio"
+      - "DB_PORT=3306"
+      - "SUBSCRIPTION_ID=sub_XXXXXXXXXXXX"
+      - "PLUGIN_KEYS={}"
+      - "SSL_ENABLED=false"
+      - "SSL_COUNTRY=CA"
+      - "SSL_STATE=BC"
+      - "SSL_LOCATION=Vancouver"
+      - "SSL_ORGANIZATION=Shinobi Systems"
+      - "SSL_ORGANIZATION_UNIT=IT Department"
+      - "SSL_COMMON_NAME=nvr.ninja"
+      - "DB_DISABLE_INCLUDED=false"
+
+    hostname: "shinobi"
+
+    image: "shinobisystems/shinobi:latest"
+
+    ipc: "private"
+
+    logging:
+      driver: "json-file"
+      options: {}
+
+    mac_address: "02:42:ac:11:00:02"
+
+    network_mode: "bridge"
+
+    ports:
+      - "8080:8080/tcp"
+
+    restart: "always"
+
+    stdin_open: true
+
+    volumes:
+      - "/vol1/1000/docker/shinobisystems_shinobi/config:/config"
+      - "/vol1/1000/docker/shinobisystems_shinobi/customAutoLoad:/customAutoLoad"
+      - "/vol1/1000/docker/shinobisystems_shinobi/home_Shinobi_plugins:/home/Shinobi/plugins"
+      - "/vol1/1000/docker/shinobisystems_shinobi/home_Shinobi_videos:/home/Shinobi/videos"
+      - "/vol1/1000/docker/shinobisystems_shinobi/var_lib_mysql:/var/lib/mysql"
+
+    working_dir: "/home/Shinobi"
+
+version: "3.6"

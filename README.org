@@ -1,0 +1,21 @@
+* shinobi-lzc移植版本
+
+源docker镜像 shinobisystems/shinobi
+
+** 使用教程
+
+使用 [[https://www.npmjs.com/package/@lazycatcloud/lzc-cli][lzc-cli]] 工具进行打包
+
+#+begin_src shell
+  lzc-cli project build
+#+end_src
+
+使用lzc-cli工具进行安装
+
+#+begin_src shell
+  lzc-cli app install iamxiaoe.lzcapp.shinobi-xxx.lpk
+#+end_src
+
+** 更新日志
+
+- <2024-12-02 一>首次提交
